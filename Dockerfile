@@ -10,6 +10,7 @@ COPY start.sh /usr/local/bin/start.sh
 RUN chmod +x /usr/local/bin/start.sh
 
 EXPOSE 2181
+EXPOSE 9092
 
 WORKDIR /opt/kafka
 ENTRYPOINT start.sh
