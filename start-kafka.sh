@@ -22,6 +22,7 @@ fi
 if [ ! -z $kafka_logdir ]
 then
   echo "log.dirs=$kafka_logdir" >> /tmp/server.properties
+  echo "log.dir=$kafka_logdir" >> /tmp/server.properties
 fi
 
 /opt/kafka/bin/kafka-server-start.sh /tmp/server.properties
