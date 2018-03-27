@@ -3,7 +3,7 @@ FROM openjdk:8-alpine
 RUN apk add --no-cache wget
 
 WORKDIR /tmp
-RUN wget -q http://ftp.man.poznan.pl/apache/kafka/1.0.1/kafka_2.11-1.0.1.tgz && tar -xzf kafka_2.11-1.0.1.tgz && mv kafka_2.11-1.0.1 /opt/kafka && rm kafka_2.11-1.0.1.tgz
+RUN wget -q http://ftp.man.poznan.pl/apache/kafka/1.0.1/kafka_2.11-1.0.1.tgz && tar -xvzf kafka_2.11-1.0.1.tgz && mv kafka_2.11-1.0.1 /opt/kafka && rm kafka_2.11-1.0.1.tgz
 
 COPY start-standalone.sh /usr/local/bin/start-kafka.sh
 RUN chmod +x /usr/local/bin/start-kafka.sh
