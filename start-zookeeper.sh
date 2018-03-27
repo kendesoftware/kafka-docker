@@ -1,6 +1,7 @@
 #!/bin/sh
 
 cp /opt/kafka/config/zookeeper.properties /tmp/zookeeper.properties || exit 1
+echo >> /tmp/zookeeper.properties
 
 if [ ! -z $zookeeper_data_dir ]
 then

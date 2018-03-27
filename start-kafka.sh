@@ -2,6 +2,8 @@
 
 cp /opt/kafka/config/server.properties /tmp/server.properties || exit 1
 
+echo >> /tmp/server.properties
+
 if [ ! -z $kafka_listeners ]
 then
   echo "listeners=$kafka_listeners" >> /tmp/server.properties

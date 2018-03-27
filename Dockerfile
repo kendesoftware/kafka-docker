@@ -1,6 +1,7 @@
 FROM openjdk:8-alpine
 
 RUN apk add --no-cache wget
+RUN apk add --no-cache bash
 
 WORKDIR /tmp
 RUN wget -q http://ftp.man.poznan.pl/apache/kafka/1.0.1/kafka_2.11-1.0.1.tgz && tar -xzf kafka_2.11-1.0.1.tgz && mkdir -p /opt && mv /tmp/kafka_2.11-1.0.1 /opt/kafka && rm kafka_2.11-1.0.1.tgz
