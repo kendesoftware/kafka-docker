@@ -1,14 +1,14 @@
-FROM openjdk:8
+FROM openjdk:8-alpine
 
-RUN apt update && apt install -y wget
+RUN apk add --no-cache wget
 
 WORKDIR /tmp
 RUN wget -q http://ftp.man.poznan.pl/apache/kafka/1.0.1/kafka_2.11-1.0.1.tgz && tar -xzf kafka_2.11-1.0.1.tgz && mkdir -p /opt && mv /tmp/kafka_2.11-1.0.1 /opt/kafka && rm kafka_2.11-1.0.1.tgz
 
-COPY start-standalone.sh /usr/local/bin/start-kafka.sh
+COPY start-kafka.sh /usr/local/bin/start-kafka.sh
 RUN chmod +x /usr/local/bin/start-kafka.sh
 
-COPY start-standalone.sh /usr/local/bin/start-zookeeper.sh
+COPY start-zookeeper.sh /usr/local/bin/start-zookeeper.sh
 RUN chmod +x /usr/local/bin/start-zookeeper.sh
 
 COPY start-standalone.sh /usr/local/bin/start-standalone.sh
